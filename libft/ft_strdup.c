@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maserrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 14:03:37 by maserrie          #+#    #+#             */
-/*   Updated: 2022/11/29 01:34:00 by maserrie         ###   ########.fr       */
+/*   Created: 2022/11/09 10:17:45 by maserrie          #+#    #+#             */
+/*   Updated: 2022/11/28 22:52:39 by maserrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(int ac, char **av)
+char	*ft_strdup(const char *src)
 {
-	if (ac < 2)
-		return (0);
-	char	*s1;
-	char	*s2;
-	size_t	size;
+	char	*dest;
+	int		i;
 
-	size = atoi(av[3]);
-	s1 = ft_strdup(av[1]);
-	s2 = ft_strdup(av[1]);
-	s1 = strncat(s1, av[2], size);
-	s2 = ft_strncat(s2, av[2], size);
-	(void) size;
-	printf("%s\n", s1);
-	printf("%s\n", s2);
-	free(s1);
-	free(s2);
+	dest = (char *) malloc ((ft_strlen(src) + 1) *  sizeof(*src));
+	if (!dest)
+		return (NULL);
+	i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = 0;
+	return (dest);
 }

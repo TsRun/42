@@ -6,7 +6,7 @@
 #    By: maserrie <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/14 17:56:37 by maserrie          #+#    #+#              #
-#    Updated: 2022/11/28 21:46:01 by maserrie         ###   ########.fr        #
+#    Updated: 2022/11/29 01:32:32 by maserrie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,13 @@ SRCS += ft_memcpy.c
 SRCS += ft_memccpy.c
 SRCS += ft_memmove.c
 SRCS += ft_memchr.c
+SRCS += ft_memcmp.c
+SRCS += ft_strlen.c
+SRCS += ft_strdup.c
+SRCS += ft_strcpy.c
+SRCS += ft_strncpy.c
+SRCS += ft_strcat.c
+SRCS += ft_strncat.c
 
 CFLAGS = -Wall -Werror -Wextra -g
 
