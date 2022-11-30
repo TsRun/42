@@ -6,12 +6,11 @@
 #    By: maserrie <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/14 17:56:37 by maserrie          #+#    #+#              #
-#    Updated: 2022/11/30 11:48:03 by maserrie         ###   ########.fr        #
+#    Updated: 2022/11/30 16:56:13 by maserrie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.c
-SRCS += ft_memset.c
+SRCS = ft_memset.c
 SRCS += ft_bzero.c
 SRCS += ft_memcpy.c
 SRCS += ft_memccpy.c
@@ -68,21 +67,29 @@ SRCS += ft_lstdelone.c
 SRCS += ft_lstdel.c
 SRCS += ft_lstadd.c
 SRCS += ft_lstiter.c
+SRCS += ft_lstmap.c
+SRCS += ft_lstcreate.c
+SRCS += ft_strdup_tab.c
+SRCS += ft_putlstone.c
+SRC = $(addprefix srcs/, ${SRCS})
 
 CFLAGS = -Wall -Werror -Wextra -g
 
-OBJS = ${SRCS:.c=.o}
+OBJS = ${SRC:.c=.o}
 
 CC = gcc
 
 RM = rm -f
 
-HEADER = ft.h
+HEADERS = includes/
 
-NAME = ft_test
+NAME = libft.a
+
+.c.o:
+	${CC} ${CFLAGS} -I ${HEADERS} -c $< -o ${<:.c=.o}
 
 ${NAME}: ${OBJS}
-	${CC} -o ${NAME} -I ${HEADER} ${CFLAGS} ${OBJS}
+	ar rc ${NAME} ${OBJS}
 
 all: ${NAME}
 

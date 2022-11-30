@@ -6,7 +6,7 @@
 /*   By: maserrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:52:31 by maserrie          #+#    #+#             */
-/*   Updated: 2022/11/30 11:47:17 by maserrie         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:06:09 by maserrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,8 @@ void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void	ft_lstadd(t_list **alst, t_list *ne);
 void	ft_lstiter(t_list *elem, void (*f)(t_list *ele));
-
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+t_list	*ft_lstcreate(int size, char **data);
+char	**ft_strdup_tab(size_t av, char **ac);
+void	ft_putlstone(t_list *elem);
 #endif

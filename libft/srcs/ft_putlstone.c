@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_putlstone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maserrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 11:36:26 by maserrie          #+#    #+#             */
-/*   Updated: 2022/11/30 11:40:51 by maserrie         ###   ########.fr       */
+/*   Created: 2022/11/30 12:51:25 by maserrie          #+#    #+#             */
+/*   Updated: 2022/11/30 13:14:05 by maserrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void	ft_putlstone(t_list *elem)
 {
-	t_list	**prev;
-
-	while (*alst)
-	{
-		prev = alst;
-		alst = &(*alst)->next;
-		ft_lstdelone(prev, del);
-	}
+	if (!elem)
+		return ;
+	ft_putstr("Value of this elem: ");
+	write(1, elem->content, elem->content_size);
+	ft_putstr(", size of this elem: ");
+	ft_putnbr((int) elem->content_size);
+	ft_putchar('\n');
 }
