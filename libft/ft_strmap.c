@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maserrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 12:26:02 by maserrie          #+#    #+#             */
-/*   Updated: 2022/11/29 12:16:10 by maserrie         ###   ########.fr       */
+/*   Created: 2022/11/29 18:17:34 by maserrie          #+#    #+#             */
+/*   Updated: 2022/11/29 18:19:47 by maserrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+char	*ft_strmap(const char *str, char (*f)(char))
 {
+	char	*res;
 	size_t	i;
-	size_t	j;
 
-	i = ft_strlen(dest);
-	j = 0;
-	while (src[j])
+	i = 0;
+	res = ft_strnew(ft_strlen(str) + 1);
+	if (!res)
+		return (NULL);
+	while (str[i])
 	{
-		dest[i + j] = src[j];
-		j++;
+		res[i] = f(str[i]);
+		i++;
 	}
-	dest[i + j] = 0;
-	return (dest);
+	return (res);
 }

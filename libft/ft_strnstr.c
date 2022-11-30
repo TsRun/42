@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maserrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 12:26:02 by maserrie          #+#    #+#             */
-/*   Updated: 2022/11/29 12:16:10 by maserrie         ###   ########.fr       */
+/*   Created: 2022/11/06 11:34:56 by maserrie          #+#    #+#             */
+/*   Updated: 2022/11/29 16:27:51 by maserrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 {
 	size_t	i;
 	size_t	j;
+	size_t	len;
 
-	i = ft_strlen(dest);
-	j = 0;
-	while (src[j])
+	i = 0;
+	len = ft_strlen(to_find);
+	if (len == 0)
+		return ((char *)str);
+	while (str[i])
 	{
-		dest[i + j] = src[j];
-		j++;
+		j = 0;
+		while (str[i + j] == to_find[j])
+		{
+			if (j == len - 1 && i + j < n)
+				return ((char *)str + i);
+			j++;
+		}
+		i++;
 	}
-	dest[i + j] = 0;
-	return (dest);
+	return (0);
 }

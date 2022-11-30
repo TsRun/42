@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maserrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 12:26:02 by maserrie          #+#    #+#             */
-/*   Updated: 2022/11/29 12:16:10 by maserrie         ###   ########.fr       */
+/*   Created: 2022/11/30 11:36:26 by maserrie          #+#    #+#             */
+/*   Updated: 2022/11/30 11:40:51 by maserrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	size_t	i;
-	size_t	j;
+	t_list	**prev;
 
-	i = ft_strlen(dest);
-	j = 0;
-	while (src[j])
+	while (*alst)
 	{
-		dest[i + j] = src[j];
-		j++;
+		prev = alst;
+		alst = &(*alst)->next;
+		ft_lstdelone(prev, del);
 	}
-	dest[i + j] = 0;
-	return (dest);
 }

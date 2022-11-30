@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maserrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 12:26:02 by maserrie          #+#    #+#             */
-/*   Updated: 2022/11/29 12:16:10 by maserrie         ###   ########.fr       */
+/*   Created: 2022/11/30 00:40:04 by maserrie          #+#    #+#             */
+/*   Updated: 2022/11/30 01:08:43 by maserrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+void	ft_putstr_fd(char const *str, int fd)
 {
-	size_t	i;
-	size_t	j;
-
-	i = ft_strlen(dest);
-	j = 0;
-	while (src[j])
-	{
-		dest[i + j] = src[j];
-		j++;
-	}
-	dest[i + j] = 0;
-	return (dest);
+	if (fd != -1)
+		write(fd, str, ft_strlen(str));
 }

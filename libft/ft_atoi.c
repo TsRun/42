@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maserrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 12:26:02 by maserrie          #+#    #+#             */
-/*   Updated: 2022/11/29 12:16:10 by maserrie         ###   ########.fr       */
+/*   Created: 2022/11/29 16:36:47 by maserrie          #+#    #+#             */
+/*   Updated: 2022/11/29 16:41:01 by maserrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+int	ft_atoi(const char *str)
 {
-	size_t	i;
-	size_t	j;
+	size_t			i;
+	int				sign;
+	unsigned int	res;
 
-	i = ft_strlen(dest);
-	j = 0;
-	while (src[j])
+	res = 0;
+	sign = 1;
+	i = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		dest[i + j] = src[j];
-		j++;
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
-	dest[i + j] = 0;
-	return (dest);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10 + str[i] - '0';
+		i++;
+	}
+	return ((int)res * sign);
 }

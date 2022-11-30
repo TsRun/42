@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maserrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 12:26:02 by maserrie          #+#    #+#             */
-/*   Updated: 2022/11/29 12:16:10 by maserrie         ###   ########.fr       */
+/*   Created: 2022/11/29 18:29:57 by maserrie          #+#    #+#             */
+/*   Updated: 2022/11/29 18:34:14 by maserrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
-	size_t	j;
+	char			*res;
+	unsigned int	i;
 
-	i = ft_strlen(dest);
-	j = 0;
-	while (src[j])
+	i = 0;
+	res = ft_strnew(ft_strlen(s) + 1);
+	if (!res)
+		return (NULL);
+	while (s[i])
 	{
-		dest[i + j] = src[j];
-		j++;
+		res[i] = f(i, s[i]);
+		i++;
 	}
-	dest[i + j] = 0;
-	return (dest);
+	return (res);
 }

@@ -6,7 +6,7 @@
 #    By: maserrie <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/14 17:56:37 by maserrie          #+#    #+#              #
-#    Updated: 2022/11/29 01:32:32 by maserrie         ###   ########.fr        #
+#    Updated: 2022/11/30 11:48:03 by maserrie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,50 @@ SRCS += ft_strcpy.c
 SRCS += ft_strncpy.c
 SRCS += ft_strcat.c
 SRCS += ft_strncat.c
+SRCS += ft_strlcat.c
+SRCS += ft_strchr.c
+SRCS += ft_strrchr.c
+SRCS += ft_strstr.c
+SRCS += ft_strnstr.c
+SRCS += ft_strcmp.c
+SRCS += ft_strncmp.c
+SRCS += ft_atoi.c
+SRCS += ft_isalpha.c
+SRCS += ft_isdigit.c
+SRCS += ft_isalnum.c
+SRCS += ft_isascii.c
+SRCS += ft_isprint.c
+SRCS += ft_toupper.c
+SRCS += ft_tolower.c
+SRCS += ft_memalloc.c
+SRCS += ft_memdel.c
+SRCS += ft_strnew.c
+SRCS += ft_strdel.c
+SRCS += ft_strclr.c
+SRCS += ft_striter.c
+SRCS += ft_striteri.c
+SRCS += ft_strmap.c
+SRCS += ft_strmapi.c
+SRCS += ft_strequ.c
+SRCS += ft_strnequ.c
+SRCS += ft_strsub.c
+SRCS += ft_strjoin.c
+SRCS += ft_strtrim.c
+SRCS += ft_strsplit.c
+SRCS += ft_itoa.c
+SRCS += ft_putchar.c
+SRCS += ft_putstr.c
+SRCS += ft_putendl.c
+SRCS += ft_putnbr.c
+SRCS += ft_putchar_fd.c
+SRCS += ft_putstr_fd.c
+SRCS += ft_putendl_fd.c
+SRCS += ft_putnbr_fd.c
+SRCS += ft_lstnew.c
+SRCS += ft_lstdelone.c
+SRCS += ft_lstdel.c
+SRCS += ft_lstadd.c
+SRCS += ft_lstiter.c
 
 CFLAGS = -Wall -Werror -Wextra -g
 
@@ -47,3 +91,5 @@ clean:
 
 fclean: clean
 	${RM} ${NAME}
+
+re: fclean all

@@ -6,13 +6,13 @@
 /*   By: maserrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 12:26:02 by maserrie          #+#    #+#             */
-/*   Updated: 2022/11/29 01:33:22 by maserrie         ###   ########.fr       */
+/*   Updated: 2022/11/29 12:16:47 by maserrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *restrict dest, const char *restrict src, size_t nb)
+char	*ft_strncat(char *dest, const char *src, size_t nb)
 {
 	size_t	i;
 	size_t	j;

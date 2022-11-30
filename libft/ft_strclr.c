@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maserrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 12:26:02 by maserrie          #+#    #+#             */
-/*   Updated: 2022/11/29 12:16:10 by maserrie         ###   ########.fr       */
+/*   Created: 2022/11/29 18:06:19 by maserrie          #+#    #+#             */
+/*   Updated: 2022/11/29 18:07:19 by maserrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+void	ft_strclr(char *s)
 {
 	size_t	i;
-	size_t	j;
 
-	i = ft_strlen(dest);
-	j = 0;
-	while (src[j])
+	i = 0;
+	while (s[i])
 	{
-		dest[i + j] = src[j];
-		j++;
+		s[i] = '\0';
+		i++;
 	}
-	dest[i + j] = 0;
-	return (dest);
 }
