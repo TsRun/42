@@ -6,7 +6,7 @@
 #    By: maserrie <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/14 17:56:37 by maserrie          #+#    #+#              #
-#    Updated: 2022/12/03 22:23:38 by maserrie         ###   ########.fr        #
+#    Updated: 2022/12/04 18:08:02 by maserrie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,6 +105,7 @@ clean:
 
 fclean: clean
 	@${RM} ${NAME}
+	@echo "${CYAN}Un bon menage de fait"
 
 re: fclean all
 

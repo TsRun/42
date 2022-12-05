@@ -6,7 +6,7 @@
 /*   By: maserrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:52:31 by maserrie          #+#    #+#             */
-/*   Updated: 2022/12/03 21:38:34 by maserrie         ###   ########.fr       */
+/*   Updated: 2022/12/04 17:54:04 by maserrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	ft_lstadd_front(t_list **lst, t_list *ne);
 void	*ft_calloc(size_t len, size_t size);
 void	ft_bzero(void *s, size_t len);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void	*ft_memmove(void *s, const void *s2, size_t len);
 void	*ft_memchr(const void *s, int c, size_t len);
 int		ft_memcmp(const void *s1, const void *s2, size_t len);
@@ -50,9 +49,7 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
-void	ft_striter(char *s, void (*f)(char *));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-char	*ft_strmap(const char *str, char (*f)(char));
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -69,6 +66,5 @@ void	ft_lstdelone(t_list *alst, void (*del)(void *));
 void	ft_lstclear(t_list **alst, void (*del)(void *));
 void	ft_lstiter(t_list *elem, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-t_list	*ft_lstcreate(int size, char **data);
 
 #endif

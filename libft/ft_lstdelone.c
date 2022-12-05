@@ -6,7 +6,7 @@
 /*   By: maserrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 01:52:54 by maserrie          #+#    #+#             */
-/*   Updated: 2022/12/03 22:00:39 by maserrie         ###   ########.fr       */
+/*   Updated: 2022/12/04 12:57:07 by maserrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,8 @@
 
 void	ft_lstdelone(t_list *alst, void (*del)(void *))
 {
-	if (!alst)
+	if (!alst || !del)
 		return ;
-	if (del && alst->content)
-	{
-		del(alst->content);
-		alst->content = NULL;
-	}
-	if (del)
-		del((void *)alst);
+	del(alst->content);
+	free(alst);
 }

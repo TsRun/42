@@ -6,7 +6,7 @@
 /*   By: maserrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 18:25:47 by maserrie          #+#    #+#             */
-/*   Updated: 2022/12/03 18:41:05 by maserrie         ###   ########.fr       */
+/*   Updated: 2022/12/04 18:07:58 by maserrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void	*ft_calloc(size_t len, size_t size)
 	mem = malloc(temp);
 	if (!mem)
 		return (NULL);
-	bzero(mem, temp);
+	ft_bzero(mem, temp);
 	return (mem);
 }

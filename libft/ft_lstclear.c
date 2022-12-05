@@ -6,7 +6,7 @@
 /*   By: maserrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 11:36:26 by maserrie          #+#    #+#             */
-/*   Updated: 2022/12/03 21:44:52 by maserrie         ###   ########.fr       */
+/*   Updated: 2022/12/04 12:59:09 by maserrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 
 void	ft_lstclear(t_list **alst, void (*del)(void *))
 {
-	if (!alst || !*alst)
+	t_list	*tmp;
+
+	if (!alst)
 		return ;
-	ft_lstclear(&((*alst)->next), del);
-	ft_lstdelone(*alst, del);
-	*alst = NULL;
+	while (*alst)
+	{
+		tmp = (*alst)->next;
+		ft_lstdelone(*alst, del);
+		*alst = tmp;
+	}
 }

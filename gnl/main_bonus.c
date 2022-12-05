@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstcreate.c                                     :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maserrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 15:31:31 by maserrie          #+#    #+#             */
-/*   Updated: 2022/11/30 12:46:54 by maserrie         ###   ########.fr       */
+/*   Created: 2022/12/02 16:35:05 by maserrie          #+#    #+#             */
+/*   Updated: 2022/12/05 16:31:00 by maserrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line_bonus.h"
 
-t_list	*ft_lstcreate(int size, char **data)
+void	ft_putstr(char *str)
 {
-	t_list	*elem;
-	t_list	*nex;
-	int		i;
+	write(1, str, ft_strlen(str));
+}
 
-	i = 0;
-	elem = NULL;
-	if (size <= 0)
-		return (NULL);
-	while (i < size)
+int	main(int ac, char **av)
+{
+	int		fd;
+	char	*str;
+
+	fd = open(av[1], O_RDONLY);
+	str = get_next_line(fd);
+	while (str)
 	{
-		nex = ft_lstnew((void *)data[i], ft_strlen(data[i]));
-		nex->next = elem;
-		i++;
-		elem = nex;
+		printf("%s", str);
+		free(str);
+		str = get_next_line(fd);
 	}
-	return (nex);
+	printf("%p\n", str);
+	(void)ac;
 }
